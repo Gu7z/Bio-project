@@ -10,7 +10,7 @@ const Map = ({ trees }) => {
   const [markers, setMarkers] = useState([]);
   const [routes, setRoutes] = useState([]);
   const [treesNames, setTreesNames] = useState("");
-  const [isSelected, setIsSelected] = useState(true);
+  const [isSelected, setIsSelected] = useState(false);
   const [whatIsSelected, setWhatIsSelected] = useState();
 
   useEffect(() => {
