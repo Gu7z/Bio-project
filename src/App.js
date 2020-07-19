@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import firebase from "firebase";
+import getDataFromDataBase from "./utils/firebase";
+import RenderedMap from "./components/map";
 
 function App() {
+  const [database, setDataBase] = useState(firebase);
+
+  useEffect(() => {
+    getDataFromDataBase("arvores", (databaseFromFirebase) => {
+      const newDatabase = [];
+      Object.entries(databaseFromFirebase).map((trees) => {
+        newDatabase.push(trees[1]);
+      });
+      setDataBase(newDatabase);
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ width: "100%", height: "100vh" }}>
+      <RenderedMap trees={database} />
     </div>
   );
 }

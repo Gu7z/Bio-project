@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "firebase": "^7.16.0",
+    "leaflet": "^1.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-leaflet": "^2.7.0",
+    "react-leaflet-enhanced-marker": "^1.0.15",
     "react-scripts": "3.4.1"
   },
   "scripts": {
