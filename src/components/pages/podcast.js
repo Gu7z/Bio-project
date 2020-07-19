@@ -3,7 +3,7 @@ import { Box, Paper, Button } from "@material-ui/core";
 import Carousel from "react-material-ui-carousel";
 import ReactAudioPlayer from "react-audio-player";
 
-function Podcast({ treesNames, whatIsSelected }) {
+function Podcast({ treesNames, whatIsSelected, setIsSelected }) {
   const items = [
     {
       image:
@@ -62,6 +62,7 @@ function Podcast({ treesNames, whatIsSelected }) {
       </Box>
       <Box>
         <ReactAudioPlayer
+          style={{ outline: "none" }}
           ref={(audioElement) => setAudioElement(audioElement)}
           listenInterval={1000}
           onListen={(time) => {
@@ -85,6 +86,13 @@ function Podcast({ treesNames, whatIsSelected }) {
         />
       </Box>
       <Box>{legendToShow}</Box>
+      <Button
+        onClick={() => setIsSelected(false)}
+        variant="outlined"
+        color="primary"
+      >
+        Back to map
+      </Button>
     </Box>
   );
 }

@@ -8,7 +8,6 @@ import Podcast from "../pages/podcast";
 const Map = ({ trees }) => {
   const center = [-19.0006, -57.6301542];
   const [markers, setMarkers] = useState([]);
-  const [routes, setRoutes] = useState([]);
   const [treesNames, setTreesNames] = useState("");
   const [isSelected, setIsSelected] = useState(false);
   const [whatIsSelected, setWhatIsSelected] = useState();
@@ -17,7 +16,6 @@ const Map = ({ trees }) => {
     if (trees.length) {
       const newMarkers = [];
       const newNames = [];
-      const newRoutes = [];
 
       trees = trees.filter((tree) => tree.nome_popular !== "id");
 
@@ -39,7 +37,6 @@ const Map = ({ trees }) => {
 
       setMarkers(newMarkers);
       setTreesNames(newNames);
-      setRoutes(newRoutes);
     }
   }, [trees]);
 
@@ -58,12 +55,13 @@ const Map = ({ trees }) => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
+
           {markers.length &&
             markers.map((markerPosition, key) => (
               <Marker
                 icon={
                   <Box textAlign="center">
-                    <Nature style={{ fill: "green", fontSize: 40 }} />
+                    <Nature style={{ fill: "#42692f", fontSize: 40 }} />
                   </Box>
                 }
                 key={key}
@@ -76,11 +74,13 @@ const Map = ({ trees }) => {
                 <Popup>{treesNames[key]}</Popup>
               </Marker>
             ))}
-          {routes.length &&
-            routes.map((route, key) => <Marker key={key} position={route} />)}
         </LeafletMap>
       ) : (
-        <Podcast treesNames={treesNames} whatIsSelected={whatIsSelected} />
+        <Podcast
+          setIsSelected={setIsSelected}
+          treesNames={treesNames}
+          whatIsSelected={whatIsSelected}
+        />
       )}
     </>
   );
