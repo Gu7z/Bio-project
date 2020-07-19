@@ -8,9 +8,11 @@
     "firebase": "^7.16.0",
     "leaflet": "^1.6.0",
     "react": "^16.13.1",
+    "react-audio-player": "^0.13.0",
     "react-dom": "^16.13.1",
     "react-leaflet": "^2.7.0",
     "react-leaflet-enhanced-marker": "^1.0.15",
+    "react-material-ui-carousel": "^1.6.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {
