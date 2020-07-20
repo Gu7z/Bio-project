@@ -63,7 +63,7 @@ const Map = ({ trees }) => {
                 icon={                  
                   <Box textAlign="center">
                     {treesNames[key]=='id' ? (
-                      <Icon path={mdiHelp} size={1.5} color="#42692f" />
+                      <Icon path={mdiHelp} size={1.5} color="grey" />
                     ) : (
                       <Icon path={mdiTree} size={1.5} color="#42692f"/>
                     )}
