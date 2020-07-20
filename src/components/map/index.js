@@ -17,9 +17,8 @@ const Map = ({ trees }) => {
     if (trees.length) {
       const newMarkers = [];
       const newNames = [];
-
+      
       //trees = trees.filter((tree) => tree.nome_popular !== "id");
-
       trees = trees.sort(function (a, b) {
         return b.coord.lat - a.coord.lat;
       });
@@ -60,7 +59,7 @@ const Map = ({ trees }) => {
           {markers.length &&
             markers.map((markerPosition, key) => (
               <Marker
-                icon={                  
+                icon={
                   <Box textAlign="center">
                     {treesNames[key]=='id' ? (
                       <Icon path={mdiHelp} size={1.5} color="grey" />
@@ -70,7 +69,7 @@ const Map = ({ trees }) => {
                   </Box> 
                 }
                 key={key}
-                position={markerPosition}                
+                position={markerPosition}
                 onClick={() => {
                   setWhatIsSelected(treesNames[key]);
                   setIsSelected(true);
