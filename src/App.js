@@ -43,7 +43,7 @@ function App() {
             width={250}
             height={150}
           >
-            Segura as ponta que o firebase demora pra ******* pra carregar slk
+            Carregando...
             <Box mt={2} width="84%">
               <LinearProgress />
             </Box>

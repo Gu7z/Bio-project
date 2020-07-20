@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Map as LeafletMap, Popup, TileLayer } from "react-leaflet";
 import Marker from "react-leaflet-enhanced-marker";
-import Nature from "@material-ui/icons/Nature";
+import Icon from '@mdi/react'
+import { mdiTree, mdiHelp } from '@mdi/js';
 import Box from "@material-ui/core/Box";
 import Podcast from "../pages/podcast";
 
@@ -17,7 +18,7 @@ const Map = ({ trees }) => {
       const newMarkers = [];
       const newNames = [];
 
-      trees = trees.filter((tree) => tree.nome_popular !== "id");
+      //trees = trees.filter((tree) => tree.nome_popular !== "id");
 
       trees = trees.sort(function (a, b) {
         return b.coord.lat - a.coord.lat;
@@ -59,13 +60,17 @@ const Map = ({ trees }) => {
           {markers.length &&
             markers.map((markerPosition, key) => (
               <Marker
-                icon={
+                icon={                  
                   <Box textAlign="center">
-                    <Nature style={{ fill: "#42692f", fontSize: 40 }} />
-                  </Box>
+                    {treesNames[key]=='id' ? (
+                      <Icon path={mdiHelp} size={1.5} color="#42692f" />
+                    ) : (
+                      <Icon path={mdiTree} size={1.5} color="#42692f"/>
+                    )}
+                  </Box> 
                 }
                 key={key}
-                position={markerPosition}
+                position={markerPosition}                
                 onClick={() => {
                   setWhatIsSelected(treesNames[key]);
                   setIsSelected(true);

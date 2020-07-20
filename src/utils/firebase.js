@@ -17,7 +17,7 @@ firebase.analytics();
 
 const getDataFromDataBase = (database, setResponse) => {
   const query = firebase.database().ref(database);
-
+  
   query.on("value", (dataSnapshot) => {
     const data = dataSnapshot.val();
     setResponse(data);
